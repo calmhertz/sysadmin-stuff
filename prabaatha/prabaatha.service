@@ -1,0 +1,14 @@
+[Unit]
+Description=Wake Up Notifier
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/prabaatha
+ExecStart=/bin/bash -c '/opt/prabaatha/send.sh "Namaskara, I am $HOSTNAME and I am awake now." > /opt/prabaatha/log 2>&1'
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

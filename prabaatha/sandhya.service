@@ -1,0 +1,13 @@
+[Unit]
+Description=Shutdown Notifier
+After=network-online.target
+Before=network.target NetworkManager.service systemd-networkd.service systemd-resolved.service shutdown.target reboot.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/prabaatha
+ExecStart=/bin/bash -c 'while true; do sleep 3600; done'
+ExecStop=/bin/bash -c '/opt/prabaatha/send.sh "Sari matthe sigona, I am $HOSTNAME and I am going offline now." >> /opt/prabaatha/log'
+
+[Install]
+WantedBy=multi-user.target
