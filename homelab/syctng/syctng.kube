@@ -1,0 +1,9 @@
+[Unit]
+Description=Syncthing Pod via Podman Kube
+After=network-online.target
+
+[Kube]
+Yaml=/home/user/syncthing/play.yaml
+
+[Install]
+WantedBy=default.target

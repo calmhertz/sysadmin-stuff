@@ -1,0 +1,11 @@
+[Unit]
+Description=Filebrowser Quadlet
+
+[Kube]
+Yaml=/path/to/filebrowser/play.yaml
+
+[Service]
+WorkingDirectory=/path/to/filebrowser
+
+[Install]
+WantedBy=default.target
